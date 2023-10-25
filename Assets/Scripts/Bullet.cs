@@ -21,10 +21,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == ("Enemy"))
+        if (collision.gameObject.tag == ("Enemy") || collision.gameObject.tag == ("boss"))
         {
             enemy = collision.gameObject.GetComponent<enemy>();
-            enemy.tiiiiir=moveEtTir;
+            enemy.tiiiiir = moveEtTir;
             enemy.life--;
             Destroy(gameObject);
         }
@@ -38,6 +38,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (transform.position.y < -7) { Destroy(gameObject); }
     }
 
 }

@@ -42,15 +42,16 @@ public class Bonus : MonoBehaviour
 
                 switch (boostType1)
                 {
+                    case 0:
+                        moveEtTir.powerup = true;
+                        moveEtTir.powerup2 = false;
+                        break;
 
                     case 1:
                         moveEtTir.powerup = false;
                         moveEtTir.powerup2 = true;
                         break;
-                    case 0:
-                        moveEtTir.powerup = true;
-                        moveEtTir.powerup2 = false;
-                        break;
+
 
 
 

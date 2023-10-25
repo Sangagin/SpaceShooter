@@ -9,6 +9,7 @@ TagManager:
   - Bonus
   - Malus
   - toucheEnemy
+  - boss
   layers:
   - Default
   - TransparentFX

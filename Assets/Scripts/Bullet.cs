@@ -28,6 +28,18 @@ public class Bullet : MonoBehaviour
             enemy.life--;
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == ("Player") && tag==("tirBoss"))
+        {
+
+            Debug.Log("tapé par boss");
+            moveEtTir = collision.gameObject.GetComponent<MovementEtTir>();
+            moveEtTir.vie--;
+
+            Destroy(gameObject);
+        }
+
+
     }
 
 

@@ -27,8 +27,9 @@ public class enemy : MonoBehaviour
 
     public float sens = -1f;
     private bool attente = true;
+    private bool attenteTir = true;
 
-
+    Vector3 decalage = new Vector3(2.5f, 0, 0);
 
 
     public GameObject bullet;
@@ -71,9 +72,21 @@ public class enemy : MonoBehaviour
                 monRB2D.velocity = vel2;
 
 
-                GameObject myBullet = Instantiate(bullet, parent.position, parent.rotation);
-                myBullet.GetComponent<Bullet>().speed = myBullet.GetComponent<Bullet>().speed * (-1);
+                if (attenteTir)
+                {
 
+                    StartCoroutine(TirBoss());
+                    GameObject balleBoss1 = Instantiate(bullet, parent.position-decalage, parent.rotation);
+                    balleBoss1.GetComponent<Bullet>().speed = balleBoss1.GetComponent<Bullet>().speed * (-1);
+                    GameObject balleBoss2 = Instantiate(bullet, parent.position+decalage, parent.rotation);
+                    balleBoss2.GetComponent<Bullet>().speed = balleBoss2.GetComponent<Bullet>().speed * (-1);
+                    balleBoss1.transform.localScale = balleBoss1.transform.localScale * 4;
+                    balleBoss2.transform.localScale = balleBoss2.transform.localScale * 4;
+                    balleBoss1.tag = "tirBoss";
+                    balleBoss2.tag = "tirBoss";
+                    balleBoss1.GetComponent<Bullet>().moveEtTir = tiiiiir;
+                    balleBoss2.GetComponent<Bullet>().moveEtTir = tiiiiir;
+                }
 
 
             }
@@ -154,7 +167,19 @@ public class enemy : MonoBehaviour
         }
 
         attente = true;
-        Debug.Log(sens);
+
+
+    }
+
+
+
+    IEnumerator TirBoss()
+    {
+        attenteTir = false;
+        yield return new WaitForSeconds(1); ;
+
+
+        attenteTir = true;
 
 
     }

@@ -10,7 +10,7 @@ public class enemy : MonoBehaviour
 {
 
     public TextMeshProUGUI monUI;
-    public GameObject circle;
+    public GameObject bonusApparence;
     public GameObject malus;
     public MovementEtTir tiiiiir;
     private Bonus bonus;
@@ -37,7 +37,7 @@ public class enemy : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
+    // lancement du déplacement lattéral des ennemis
     void Start()
     {
         StartCoroutine(Move());
@@ -48,20 +48,15 @@ public class enemy : MonoBehaviour
     void Update()
     {
 
-
-
-
-
-
         //partie déplacement lattéral des ennemis
         //la partie déplacement verticale est réalisée via le rigidbody
-
+        //le sens est géré par la coroutine Move lancée en start
         Vector3 vel = monRB2D.velocity;
         vel.x = -3 * sens;
         monRB2D.velocity = vel;
 
 
-        //gestion des mouvements et des tirs du boss une fois qu'il est a porté
+        //gestion des mouvements et des tirs du boss une fois qu'il est a porté du joueur
         if (gameObject.tag == "boss")
         {
             if (gameObject.transform.position.y < 4)
@@ -74,11 +69,11 @@ public class enemy : MonoBehaviour
 
                 if (attenteTir)
                 {
-
+                    //création de deux balles de tir boss
                     StartCoroutine(TirBoss());
                     GameObject balleBoss1 = Instantiate(bullet, parent.position-decalage, parent.rotation);
+                    GameObject balleBoss2 = Instantiate(bullet, parent.position + decalage, parent.rotation);
                     balleBoss1.GetComponent<Bullet>().speed = balleBoss1.GetComponent<Bullet>().speed * (-1);
-                    GameObject balleBoss2 = Instantiate(bullet, parent.position+decalage, parent.rotation);
                     balleBoss2.GetComponent<Bullet>().speed = balleBoss2.GetComponent<Bullet>().speed * (-1);
                     balleBoss1.transform.localScale = balleBoss1.transform.localScale * 4;
                     balleBoss2.transform.localScale = balleBoss2.transform.localScale * 4;
@@ -93,12 +88,12 @@ public class enemy : MonoBehaviour
         }
 
 
-
+        
         if (attente)
         {
             StartCoroutine(Move());
         }
-
+        
 
 
         //partie mort des ennemis
@@ -115,7 +110,7 @@ public class enemy : MonoBehaviour
 
                 spriteRenderer.sprite = spriteBonus1;
                 Debug.Log("Type 1 Cree !");
-                GameObject bonusCircle = Instantiate(circle, transform.position, transform.rotation);
+                GameObject bonusCircle = Instantiate(bonusApparence, transform.position, transform.rotation);
                 bonus = bonusCircle.GetComponent<Bonus>();
                 bonus.boostType1 = 0;
             }
@@ -124,7 +119,7 @@ public class enemy : MonoBehaviour
                 Debug.Log("Type 2 Cree !");
 
                 spriteRenderer.sprite = spriteBonus2;
-                GameObject bonusCircle = Instantiate(circle, transform.position, transform.rotation);
+                GameObject bonusCircle = Instantiate(bonusApparence, transform.position, transform.rotation);
                 bonus = bonusCircle.GetComponent<Bonus>();
                 bonus.boostType1 = 1;
 

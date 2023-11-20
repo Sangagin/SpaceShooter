@@ -6,25 +6,16 @@ using UnityEngine;
 public class Bonus : MonoBehaviour
 
 
-
 {
-
-
 
     private MovementEtTir moveEtTir;
 
 
     public int boostType1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        //destruction des bonus s'ils passent sous le joueur
         if (transform.position.y < -6)
         {
             Destroy(gameObject);
@@ -32,6 +23,7 @@ public class Bonus : MonoBehaviour
     }
 
 
+    //amélioration des tirs ia les bonus
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -40,6 +32,7 @@ public class Bonus : MonoBehaviour
             if (gameObject.tag == "Bonus")
             {
 
+                //changement de tir selon le type du bonus
                 switch (boostType1)
                 {
                     case 0:
@@ -51,18 +44,7 @@ public class Bonus : MonoBehaviour
                         moveEtTir.powerup = false;
                         moveEtTir.powerup2 = true;
                         break;
-
-
-
-
                 }
-
-
-
-
-
-
-
 
             }
             else if (gameObject.tag == "Malus")

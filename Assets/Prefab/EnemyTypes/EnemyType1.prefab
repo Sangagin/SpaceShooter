@@ -145,16 +145,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monUI: {fileID: 0}
-  circle: {fileID: 2420790462664244297, guid: 3c6da5aae9948f14aab57f6b5359b4e2, type: 3}
+  bonusApparence: {fileID: 2420790462664244297, guid: 3c6da5aae9948f14aab57f6b5359b4e2, type: 3}
   malus: {fileID: 8364985592891716562, guid: 44421002320101646a04b8c3d255b471, type: 3}
   tiiiiir: {fileID: 0}
   monRB2D: {fileID: -8140239879629124933}
+  partSystem: {fileID: 0}
   life: 1
   spriteRenderer: {fileID: 6041417648966561872, guid: 3c6da5aae9948f14aab57f6b5359b4e2, type: 3}
   spriteBonus1: {fileID: 21300000, guid: ded24e621f928c24593c70d011108c27, type: 3}
   spriteBonus2: {fileID: 21300000, guid: 9bf63bf3eeb272e43a06e98c20e8c31a, type: 3}
   sens: 1
-  cont: 0
+  bullet: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!50 &-8140239879629124933
 Rigidbody2D:
   serializedVersion: 4

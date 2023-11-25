@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monUI: {fileID: 0}
-  circle: {fileID: 2420790462664244297, guid: 3c6da5aae9948f14aab57f6b5359b4e2, type: 3}
+  bonusApparence: {fileID: 2420790462664244297, guid: 3c6da5aae9948f14aab57f6b5359b4e2, type: 3}
   malus: {fileID: 8364985592891716562, guid: 44421002320101646a04b8c3d255b471, type: 3}
   tiiiiir: {fileID: 0}
   monRB2D: {fileID: 8150715080689673210}
